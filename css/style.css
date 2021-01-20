@@ -65,10 +65,45 @@ body {
     transition: all 300ms;
 }
 
+.logo:hover {
+    border-radius: 2px;
+    background-color: #ccc;
+}
+
 .logo .gear {
     color: white;
     font-size: 30px;
     margin: 8px 0px 0px 26px;
+    animation-name: rotate-gear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate-gear {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+.logo:hover .gear {
+    animation: fromBellow 500ms linear;
+    color: black;
+}
+
+@keyframes fromBellow {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 
 .logo h3 {
@@ -77,6 +112,20 @@ body {
     transition: all 300ms;
     color: white;
     transition: all 300ms;
+}
+
+.logo:hover h3 {
+    color: black;
+    animation: fromRight 200ms linear;
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }
 
 .menu {
@@ -114,6 +163,17 @@ body {
     background: url(../img/bakbaner.png);
     background-position: -250px -200px;
     margin: 20px auto;
+    animation: backBanner 10s linear;
+    overflow: hidden;
+}
+
+@keyframes backBanner {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: -200px -200px;
+    }
 }
 
 .banner h1 {
@@ -127,6 +187,30 @@ body {
     text-align: center;
     font-weight: normal;
     text-shadow: 2px 2px 1px black;
+    animation: showText 10s linear;
+}
+
+@keyframes showText {
+    0% {
+        transform: translateX(-600%) scale(5,5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(600%) scale(5,5);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(-600%) scale(5,5);
+        opacity: 0;
+        text-shadow: none;
+        color: transparent;
+    }
+    100% {
+        transform: translateX(0%) scale(1,1);
+        opacity: 1;
+        text-shadow: 2px 2px 1px black;
+        color: white;
+    }
 }
 
 
@@ -144,6 +228,11 @@ body {
     margin: 40px 22px;
     background: white;
     cursor: pointer;
+    transition: all 300ms;
+}
+
+.card:hover {
+    background: black;
 }
 
 .card .icon {
@@ -154,6 +243,22 @@ body {
     line-height: 130px;
     margin: 0px auto;
     text-align: center;
+    transition: all 300ms;
+}
+
+.card:hover .icon {
+    font-size: 70px;
+    color: #37bcf9;
+    animation: showIcon 200ms linear;
+}
+
+@keyframes showIcon {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(0%);
+    }
 }
 
 .card .category {
@@ -164,6 +269,23 @@ body {
     font-weight: bold;
     text-align: center;
     color: #00538c;
+    transition: all 300ms;
+}
+
+.card:hover .category {
+    color: white;
+    animation: showCategory 200ms linear;
+}
+
+@keyframes showCategory {
+    from {
+        transform: translateY(-300%);
+        color: black;
+    }
+    to {
+        transform: translateY(0%);
+        color: white;
+    }
 }
 
 .card .description {
@@ -171,6 +293,22 @@ body {
     color: #0370b9;
     font-family: "TrebuchetMS";
     font-size: 15px;
+}
+
+.card:hover .description {
+    color: white;
+    animation: showDescription 400ms linear;
+}
+
+@keyframes showDescription {
+    from {
+        transform: translateX(-300%);
+        color: black;
+    }
+    to {
+        transform: translateX(0%);
+        color: white;
+    }
 }
 
 /* Barra Lateral */
@@ -333,6 +471,30 @@ body {
     margin: 10px 20px 20px;
 }
 
+.social .overlay {
+    display: block;
+    height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 1px #ccc;
+    border: 2px solid white;
+    box-shadow: 0px 0px 4px #ccc;
+    background: #F4F7FE;
+    position: absolute;
+    padding: 5px;
+    margin-left: 70px;
+    margin-top: -52px;
+    transform: translateX(-80%);
+    opacity: 0;
+    transition: all 400ms;
+}
+
+.social div:hover .overlay {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
 
 /* Articulos */
 .articles {
@@ -408,6 +570,7 @@ body {
     margin-top: 60px;
     line-height: 100px;
     text-align: center;
+    transition: all 1s;
 }
 
 .blog a {
@@ -417,6 +580,38 @@ body {
     letter-spacing: 3px;
     color: #00538c;
     text-decoration: none;
+    transition: all 1s;
+}
+
+.blog:hover {
+    background-color: #333;
+    border: 10px solid #37bcf9;
+    border-radius: 240px;
+    box-shadow: 0px 0px 10px gray;
+    animation: blink 10s infinite linear;
+}
+
+@keyframes blink {
+    0% {
+        border: 10px solid #37bcf9;
+    }
+    25% {
+        border: 10px solid green;
+    }
+    50% {
+        border: 10px solid yellow;
+    }
+    75% {
+        border: 10px solid white;
+    }
+    100% {
+        border: 10px solid #37bcf9;
+    }
+}
+
+.blog:hover a {
+    color: white;
+    text-shadow: 1px 1px 1px black, 1px 2px 1px black, 1px 3px 1px black, 1px 4px 1px black, 1px 5px 1px black, 1px 6px 1px black;
 }
 
 
@@ -428,7 +623,6 @@ footer {
     color: white;
     overflow: hidden;
 }
-
 
 footer .wrap > div {
     float: left;
@@ -475,6 +669,12 @@ footer ul li {
 footer ul li a {
     display: block;
     height: 40px;
+}
+
+footer ul li:hover a {
+    padding-left: 40px;
+    color: white;
+    width: 100%;
 }
 
 footer iframe {
