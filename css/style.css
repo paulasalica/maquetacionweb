@@ -43,6 +43,11 @@ body {
     font-family: "WebSymbolsRegular";
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Header */
 .header {
     width: 100%;
@@ -215,17 +220,14 @@ body {
 
 
 /* Cards */
-.cards {
-    display: flex;
-    flex-direction: row;
-}
 .card {
+    float: left;
     width: 205px;
     height: 305px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2pc #ddd;
     overflow: hidden;
-    margin: 40px 22px;
+    margin: 40px 21px;
     background: white;
     cursor: pointer;
     transition: all 300ms;
@@ -518,7 +520,7 @@ body {
 }
 
 .articles article {
-    width: 100%;
+    width: 97%;
     height: auto;
     border: 1px solid #ccc;
     margin: 40px auto;
